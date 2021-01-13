@@ -36,12 +36,12 @@ int main(int argc, char** argv) {
         for (size_t i = 0; i < circles.size(); i++) {
             Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
             int radius = cvRound(circles[i][2]);
-            circle(frame, center, radius, Scalar(0, 0, 255), 3, 8, 0);
+            circle(frame_light, center, radius, Scalar(0, 0, 255), 3, 8, 0);
 
             int x1 = int(cvRound(circles[i][0] - radius));
             int y1 = int(cvRound(circles[i][1] - radius));
             Rect rect(x1, y1, 2 * radius, 2 * radius);
-            Mat crop_light = frame(rect);
+            Mat crop_light = frame_light(rect);
             //imshow("crop", crop);
 
             int cw = rect.size().width;
